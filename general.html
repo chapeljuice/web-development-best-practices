@@ -38,22 +38,113 @@
 		<header class="jumbotron mini subhead" id="overview">
 			<div class="container">
 				<h1>General Development</h1>
-				<p class="lead">Stuff goes here.</p>
+				<p class="lead">You're a developer. You work at Aptimus. This page is for you. Prost!</p>
 			</div>
 		</header>
 
 		<div class="container">
 
 			<div class="row">
-				<div class="span12">
-					<p>Body copy.</p>
+				<div class="span3 side-nav">
+					<ul class="nav nav-list">
+						<li class="nav-header">General Developmemnt</li>
+						<li class="active"><a href="#generic">Generic Best Practices</a></li>
+						<li><a href="#html">HTML Files</a></li>
+						<li><a href="#css">CSS Files</a></li>
+						<li><a href="#js">JS Files</a></li>
+						<li><a href="#mobile">Mobile Standards</a></li>
+						<li><a href="#testing">Testing Tools</a></li>
+					</ul>
+				</div>
+				<div class="span9 main-content">
+					<h2><a name="generic">Generic Best Practices</a></h2>
+					<ul>
+						<li>If you're editing a file someone else started or is working on, use the style / formatting syntax that is used throughout the rest of the document. One caveat here is if you're doing a pretty big overhaul of the file, and the code in there really isn't formatted properly. If that's the case, then have at it and make it better. :)</li>
+						<li>Write your code as clearly as possible. Don't abbreviate variables / classes / ids so much that no one knows what they mean. If the site is small then it won't matter too much with page load times, and if the site is big we'll have a build process that we can use to minify the code with.</li>
+						<li>Comment your code often.</li>
+						<li>Stick as close to one css include and one script include per built site that you can (not including jquery or other plugins). If you break them out individually, use a minifier / compiler to stick them all into one before you push your site live.</li>
+						<li>If whenever possible (like in CMS projects), break out your style and script files into componentized files, then have a build process concatenate them all into one.</li>
+						<li>Always make sure your images are optimized for the web to cut down on huge page load times.</li>
+						<li>Use JS and CSS linters (may we suggest SublimeLinter for Sublime Text). While they may be annoying at first, they'll help you write better code.</li>
+						<li>Don't use extra, empty html elements for 'clear' fixes. In most cases you can address the situation by adding overflow: hidden; to container elements.</li>
+						<li>Test your site's scrolling and animations for 'jank'. If anything appears choppy, fix it; and make sure your site runs @ 60fps.</li>
+					</ul>
+					<h2><a name="html">HTML files</a></h2>
+					<ul>
+						<li>Don't use inline styles. Ever. EVER.</li>
+						<li>Use the html5 doctype on all pages for now on.</li>
+						<li>Use new text input types for now on when applicable.</li>
+						<ul>
+							<li>Examples:<pre>&lt;input type="email" /&gt;<br />&lt;input type="phone" /&gt;<br />&lt;input type="search" /&gt;</pre></li>
+						</ul>
+						<li>JavaScript includes no longer belong in the head. Place them at the bottom, right above the ending </body> tag.</li>
+							<ul>
+								<li>There are a few scenarios when this isn't the case however, such as when using Modernizr, HTML5 Shim, etc.</li>
+							</ul>
+						<li>Load all third-party scripts asynchronously. If for any reason their site isn't responding, it can block and halt the rest of your page from loading.</li>
+					</ul>
+					<h2><a name="css">CSS files</a></h2>
+					<ul>
+						<li>Whenever possible, use CSS instead of images (buttons, text over photos, etc), and if you use a lot of icons or hover states, create sprites to cut down on the number of http requests your page has to make.</li>
+							<ul>
+								<li>I also really like using Base64 encoding for tiny icons. This replaces the image with a long string of characters, reducing the number of http requests your page makes. I've been using <a href="http://www.base64-image.de" target="_blank">http://www.base64-image.de</a> lately.</li>
+							</ul>
+						<li>Write your code so it's easy to read. Then minify / compile it later for production use. This includes:</li>
+						<ul>
+							<li>Commenting your code often.</li>
+							<li>Using extra line breaks between each style, or group of styles.</li>
+							<li>Always ending each declaration with a semi-colon, even if it's the last declaration in the rule set.</li>
+							<li>Using spaces after each selector, and before each value.</li>
+							<li>Keeping each declaration and each selector on their own line.</li>
+							<ul>
+								<li>Example:
+									<pre>/* main container used for content */<br />.container {<br />	color: #09c;<br />	font-size: 1.5em;<br />}</pre>
+								</li>
+							</ul>
+						</ul>
+					</ul>
+					<h2><a name="js">JavaScript / jQuery files</a></h2>
+					<ul>
+						<li>Don't style elements using javascript. Instead, add / remove classes to the elements you want to change, and style the classes in your CSS.</li>
+						<li>Write your code so it's easy to read. Then minify / compile it later for production use. This includes:</li>
+						<ul>
+							<li>Commenting your code often.</li>
+							<li>Use extra line breaks between different functions / code blocks to make everything more readable.</li>
+							<li>Always ending your statements with semi-colons.</li>
+							<li>Using spaces after opening, and before closing parenthesis, and after commas.</li>
+							<ul>
+								<li>Example:
+									<pre>// when clicking a button...<br />$( '.button' ).on( 'click', function() {<br />	// ...show all the awsome things!<br />	$( '.awesome' ).toggle();<br />});</pre>
+								</li>
+							</ul>
+						</ul>
+						<li>When using try / catch statements, always put something in the catch. Don't leave it blank. This makes it hard to debug when something's gone wrong.</li>
+						<li>Use variable names that make sense when they're resuable. Obviously this is not needed when iterating through data, but in most other cases it should be fairly apparent what they're for.</li>
+						<li>Use a linter such as JSHint to make sure your code is valid and correctly formatted. This is easily added if you use Sublime Text, just install the Sublime Linter package and make sure you change the settings from using JSLint to JSHint.</li>
+					</ul>
+					<h2><a name="mobile">Mobile standards</a></h2>
+					<ul>
+						<li>Make your site 100% funcitonal for all browser sizes.</li>
+						<li>Even if you don't have a different design for different browser sizes, at least test everything and make sure it all works.</li>
+						<li>When developing a site for smaller form-factors (such as phones), at a minimum use: <pre>&lt;meta name="viewport" content="width=device-width" /&gt;</pre> On <a href="http://www.phoenix.edu" target="_blank">phoenix.edu</a>, we use the following, which diables zoom / pinching: <pre>&lt;meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /&gt;</pre></li>
+					</ul>
+					<h2><a name="testing">Testing tools</a></h2>
+					<ul>
+						<li>Chrome Inspector is a great way to debug, test, and try tweaks to your current page without having to save / commit / compile, etc.</li>
+						<li><a href="http://webpagetest.org" target="_blank">http://webpagetest.org</a> gives you a good waterfall of resources along with other analytics about page load times, etc.</li>
+					</ul>
 				</div>
 			</div>
-
 		</div>
+
+		<footer>
+			<div class="container">
+				<p>Please contribute! <a href="https://github.com/chapeljuice/Aptimus-Development-Best-Practices" target="_blank">This site is on GitHub</a>. The only way we can get better as developers and as a team is if we all try to stay proactive and keep up with these best practices!</p>
+			</div>
+		</footer>
 
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 		<script src="bootstrap/js/bootstrap.min.js"></script>
-		<script src="js/script.js"></script>
+		<script src="js/scripts.js"></script>
 	</body>
 </html>

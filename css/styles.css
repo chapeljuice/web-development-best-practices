@@ -142,4 +142,22 @@ h1 {
 		}
 	}
 
+h2 a {
+	color: #333;
+}
+	h2 a:hover {
+		color: #333;
+		cursor: default;
+		text-decoration: none;
+	}
+
+.main-content > ul {
+	margin-bottom: 20px;
+}
+
+footer {
+	margin-top: 40px;
+}
+
 /*-------------- end global bootstrap overrides ------------------*/
+
