@@ -1,0 +1,145 @@
+/* -------------------------------------- */
+/* best practices for aptimus development */
+/* originally authored by ryan chapel     */
+/* january 15th, 2013                     */
+/* last updated by ryan chapel            */
+/* january 16th, 2013                     */
+/* -------------------------------------- */
+
+/*-------------- global bootstrap overrides ------------------*/
+
+body {
+	font-family: helvetica, arial, sans-serif;
+	font-size: .875em; /* 14px */
+	margin: 0 auto;
+	padding-top: 40px;
+}
+
+	@media (max-width: 979px) {
+		body {
+			padding-top: 0;
+		}
+	}
+
+.navbar-inverse .navbar-inner {
+	background-image: -webkit-gradient( linear,0 0,0 100%,from( #333 ),to( #222 ) );
+	background-image: -webkit-linear-gradient( top, #333, #222 );
+	background-image: 	 -moz-linear-gradient( top, #333, #222 );
+	background-image: 		 -o-linear-gradient( top, #333, #222 );
+	background-image: 				linear-gradient( top, #333, #222 );
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333',endColorstr='#222',GradientType=0 );
+}
+
+body > .navbar .brand {
+	color: #111c24;
+	float: right;
+	font-weight: bold;
+	text-shadow: 0 1px 0 rgba( 255, 255, 255, .1 ), 0 0 30px rgba( 255, 255, 255, .2 );
+	font-size: 2em;
+}
+	.navbar-inverse .brand:hover {
+		color: #111c24;
+		cursor: default;
+	}
+
+	@media (max-width: 979px) {
+		.navbar-fixed-top {
+			margin-bottom: 0;
+		}
+	}
+
+.logo {
+	width: 15em;
+}
+
+.jumbotron {
+	color: #fff;
+	height: 310px;
+	margin-bottom: 30px;
+	text-shadow: 0 1px 0 rgba( 0, 0, 0, 1 ), 0 0 30px rgba( 0, 0, 0, .3 );
+}
+
+	@media (max-width: 767px) {
+		.jumbotron {
+			height: auto;
+			margin-bottom: 10px;
+			padding-left: 20px;
+			padding-right: 20px;
+		}
+	}
+
+	.home .jumbotron {
+		background-color: #006dcc;
+		*background-color: #04c;
+		background-image: -moz-linear-gradient(top, #08c, #04c);
+		background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#08c), to(#04c));
+		background-image: -webkit-linear-gradient(top, #08c, #04c);
+		background-image: -o-linear-gradient(top, #08c, #04c);
+		background-image: linear-gradient(to bottom, #08c, #04c);
+	}
+
+	.general .jumbotron {
+		background-color: #da4f49;
+		*background-color: #bd362f;
+		background-image: -moz-linear-gradient(top, #ee5f5b, #bd362f);
+		background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ee5f5b), to(#bd362f));
+		background-image: -webkit-linear-gradient(top, #ee5f5b, #bd362f);
+		background-image: -o-linear-gradient(top, #ee5f5b, #bd362f);
+		background-image: linear-gradient(to bottom, #ee5f5b, #bd362f);
+	}
+
+	.cq .jumbotron {
+		background-color: #faa732;
+		*background-color: #f89406;
+		background-image: -moz-linear-gradient(top, #fbb450, #f89406);
+		background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fbb450), to(#f89406));
+		background-image: -webkit-linear-gradient(top, #fbb450, #f89406);
+		background-image: -o-linear-gradient(top, #fbb450, #f89406);
+		background-image: linear-gradient(to bottom, #fbb450, #f89406);
+	}
+
+	.aptinet .jumbotron {
+		background-color: #363636;
+		*background-color: #222;
+		background-image: -moz-linear-gradient(top, #444, #222);
+		background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#444), to(#222));
+		background-image: -webkit-linear-gradient(top, #444, #222);
+		background-image: -o-linear-gradient(top, #444, #222);
+		background-image: linear-gradient(to bottom, #444, #222);
+	}
+
+	.jumbotron .container {
+		padding-top: 70px;
+	}
+
+	.jumbotron.mini {
+		height: auto;
+	}
+
+	.jumbotron.mini h1 {
+		font-size: 40px;
+		margin-bottom: 10px;
+	}
+
+	.jumbotron.mini .container {
+		padding-top: 20px;
+	}
+
+h1 {
+	font-size: 60px;
+	margin-bottom: 30px;
+}
+
+	@media (max-width: 550px) {
+		h1 {
+			font-size: 40px;
+		}
+	}
+
+	@media (max-width: 380px) {
+		h1 {
+			font-size: 30px;
+		}
+	}
+
+/*-------------- end global bootstrap overrides ------------------*/
