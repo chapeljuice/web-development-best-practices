@@ -72,6 +72,7 @@
 					<h2><a name="html">HTML files</a></h2>
 					<ul>
 						<li>Don't use inline styles. Ever. EVER.</li>
+						<li>HTML isn't complicated, so don't try to make it so. Really rethink the need for extra parent or child elements. Most of the time, one is enough (especially for things like buttons, images, etc.).</li>
 						<li>Use the html5 doctype on all pages for now on.</li>
 						<li>Use new text input types for now on when applicable.</li>
 						<ul>
@@ -102,9 +103,27 @@
 								</li>
 							</ul>
 						</ul>
+						<li>Use shorthand whenever possible. While this may contradict my 'keep it easy to read' mantra, I find it's actually easier to read CSS if it's all on one line, so you don't have to dig around and spot others tht may be somewhere else.</li>
+						<ul>
+							<li>So instead of this:
+								<pre>.container {<br />	background-image: url( ... );<br />	margin-top: 10px;<br />	background-color: transparent;<br />	margin-bottom: 10px;<br />}</pre>
+							</li>
+							<li>You'd do this:
+								<pre>.container {<br />	background: transparent url( ... );<br />	margin: 10px 0;<br />}</pre>
+							</li>
+						</ul>
 					</ul>
 					<h2><a name="js">JavaScript / jQuery files</a></h2>
 					<ul>
+						<li>Use a namespace to keep your javascript organized and conflict-free:</li>
+						<ul>
+							<li>Example time.</br />So instead of this:
+								<pre>var model = function () { ... };<br />var view = function () { ... };<br />var controller = function () { ... };</pre>
+							</li>
+							<li>You'd do this:
+								<pre>var app = {<br /><br />	// accessed via 'app.model();'...<br />	model: function () { ... },<br /><br />	// accessed via 'app.view();'...<br />	view: function () { ... },<br /><br />	// accessed via 'controller.model();'...<br />	controller: function () { ... }<br /><br />};</pre>
+							</li>
+						</ul>
 						<li>Don't style elements using javascript. Instead, add / remove classes to the elements you want to change, and style the classes in your CSS.</li>
 						<li>Write your code so it's easy to read. Then minify / compile it later for production use. This includes:</li>
 						<ul>
@@ -114,11 +133,11 @@
 							<li>Using spaces after opening, and before closing parenthesis, and after commas.</li>
 							<ul>
 								<li>Example:
-									<pre>// when clicking a button...<br />$( '.button' ).on( 'click', function() {<br />	// ...show all the awesome things!<br />	$( '.awesome' ).toggle();<br />});</pre>
+									<pre>// when clicking a button...<br />$( '.button' ).on( 'click', function () {<br /><br />	// ...show all the awesome things!<br />	$( '.awesome' ).toggle();<br /><br />});</pre>
 								</li>
 							</ul>
 						</ul>
-						<li>When using try / catch statements, always put something in the catch. Don't leave it blank. This makes it hard to debug when something's gone wrong.</li>
+						<li>When using try / catch statements, always put something in the catch. Don't leave it blank because that makes it really hard to debug when something's gone wrong.</li>
 						<li>Use variable names that make sense when they're resuable. Obviously this is not needed when iterating through data, but in most other cases it should be fairly apparent what they're for.</li>
 						<li>Use a linter such as JSHint to make sure your code is valid and correctly formatted. This is easily added if you use Sublime Text, just install the Sublime Linter package and make sure you change the settings from using JSLint to JSHint.</li>
 					</ul>
