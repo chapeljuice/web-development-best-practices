@@ -6,7 +6,7 @@
 <!--[if (gt IE 9)|!(IE)]><!--><html lang="en" class="no-js"><!--<![endif]-->
 	<head>
 		<meta charset="utf-8" />
-		<title>General Best Practices for Aptimus Development</title>
+		<title>General - Web Development Best Practicest</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" media="screen" />
 		<link rel="stylesheet" href="bootstrap/css/bootstrap-responsive.min.css" />
@@ -27,8 +27,7 @@
 						<ul class="nav">
 							<li><a href="index.html">Home</a></li>
 							<li class="active"><a href="general.html">General</a></li>
-							<li><a href="cq.html">CQ / CMS</a></li>
-							<li><a href="aptinet.html">AptiNet</a></li>
+							<li><a href="aem.html">Adobe AEM</a></li>
 						</ul>
 					</div><!--/.nav-collapse -->
 				</div>
@@ -38,7 +37,7 @@
 		<header class="jumbotron mini subhead" id="overview">
 			<div class="container">
 				<h1>General Development</h1>
-				<p class="lead">You're a developer. You work at Aptimus. This page is for you. Prost!</p>
+				<p class="lead">You're a developer. You know what you're doing and what works. This page is for you. Prost!</p>
 			</div>
 		</header>
 
@@ -60,7 +59,7 @@
 					<h2><a name="generic">Generic Best Practices</a></h2>
 					<ul>
 						<li>If you're editing a file someone else started or is working on, use the style / formatting syntax that is used throughout the rest of the document. One caveat here is if you're doing a pretty big overhaul of the file, and the code in there really isn't formatted properly. If that's the case, then have at it and make it better. :)</li>
-						<li>Write your code as clearly as possible. Don't abbreviate variables / classes / ids so much that no one knows what they mean. If the site is small then it won't matter too much with page load times, and if the site is big we'll have a build process that we can use to minify the code with.</li>
+						<li>Write your code as clearly as possible. Don't abbreviate variables / classes / ids so much that no one knows what they mean. If the site is small then it won't matter too much with page load times, and if the site is big we'll have a build process that we can use to minify the code.</li>
 						<li>Comment your code often.</li>
 						<li>Stick as close to one css include and one script include per built site that you can (not including jquery or other plugins). If you break them out individually, use a minifier / compiler to stick them all into one before you push your site live.</li>
 						<li>If whenever possible (like in CMS projects), break out your style and script files into componentized files, then have a build process concatenate them all into one.</li>
@@ -71,14 +70,14 @@
 					</ul>
 					<h2><a name="html">HTML files</a></h2>
 					<ul>
-						<li>Don't use inline styles. Ever. EVER.</li>
+						<li>Don't use inline styles. Critical path CSS was a thing for a little bit, but even that seems to be a thing of the past.</li>
 						<li>HTML isn't complicated, so don't try to make it so. Really rethink the need for extra parent or child elements. Most of the time, one is enough (especially for things like buttons, images, etc.).</li>
 						<li>Use the html5 doctype on all pages for now on.</li>
 						<li>Use new text input types for now on when applicable.</li>
 						<ul>
 							<li>Examples:<pre>&lt;input type="email" /&gt;<br />&lt;input type="phone" /&gt;<br />&lt;input type="search" /&gt;</pre></li>
 						</ul>
-						<li>JavaScript includes no longer belong in the head. Place them at the bottom, right above the ending </body> tag.</li>
+						<li>Most JavaScript includes no longer belong in the head. Place them at the bottom of your html, right above the ending &lt;/body&gt; tag.</li>
 							<ul>
 								<li>There are a few scenarios when this isn't the case however, such as when using Modernizr, HTML5 Shim, etc.</li>
 							</ul>
@@ -145,7 +144,7 @@
 					<ul>
 						<li>Make your site 100% funcitonal for all browser sizes.</li>
 						<li>Even if you don't have a different design for different browser sizes, at least test everything and make sure it all works.</li>
-						<li>When developing a site for smaller form-factors (such as phones), at a minimum use: <pre>&lt;meta name="viewport" content="width=device-width" /&gt;</pre> On <a href="http://www.phoenix.edu" target="_blank">phoenix.edu</a>, we currently use the following, which makes sure the initial scale is the width of the mobile device: <pre>&lt;meta name="viewport" content="width=device-width, initial-scale=1" /&gt;</pre></li>
+						<li>When developing a site for smaller form-factors (such as phones), at a minimum use: <pre>&lt;meta name="viewport" content="width=device-width" /&gt;</pre> Most sites I work on as of late use the following, which makes sure the initial scale is the width of the mobile device: <pre>&lt;meta name="viewport" content="width=device-width, initial-scale=1" /&gt;</pre></li>
 					</ul>
 					<h2><a name="testing">Testing tools</a></h2>
 					<ul>
@@ -158,7 +157,7 @@
 
 		<footer>
 			<div class="container">
-				<p>Please contribute! <a href="https://github.com/chapeljuice/Aptimus-Development-Best-Practices" target="_blank">This site is on GitHub</a>. The only way we can get better as developers and as a team is if we all try to stay proactive and keep up with these best practices!</p>
+				<p>Please contribute! <a href="https://github.com/chapeljuice/web-development-best-practices" target="_blank">This site is on GitHub</a>. The only way we can get better as developers and as a team is if we all try to stay proactive and keep up with these best practices!</p>
 			</div>
 		</footer>
 
